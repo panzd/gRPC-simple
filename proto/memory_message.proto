@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "pb";
+
+message Memory {
+    enum Unit {
+        //The convention is, always use a special value 
+        //to serve as default value of your enum and assign the tag 0 for it.
+        UNKNOWN = 0; //unknown
+        BIT = 1;
+        BYTE = 2;
+        KILOBYTE = 3; // kilobyte
+        MEGABYTE = 4;
+        GIGABYTE = 5;
+        TERABYTE = 6;
+    }
+    uint64 value = 1;
+    Unit unit = 2;
+}
